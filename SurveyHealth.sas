@@ -229,10 +229,10 @@ RUN;
 
 /* (1) Education Level by health */
 PROC FORMAT;
-	VALUE IREDUC2b   1.0="<12 Grade"
+	VALUE IREDUC2b   1.0=">12 Grade"
 			 0.0="10-12 Grade"
 			-1.0="8-9 Grade"
-			-2.0=">8 Grade";
+			-2.0="<8 Grade";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
