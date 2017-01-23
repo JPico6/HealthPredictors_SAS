@@ -1,10 +1,10 @@
 /********************************************************************************
-* PROGRAM NAME : SurveyHealth.sas												*
+* PROGRAM NAME : SurveyHealth.sas						*
 * DESCRIPTION : Analysis of the National Survey of on Drug Use and Health, 2012	*
-* PROGRAMMED BY : Jason Piccone													*
-* DATE WRITTEN : 1/20/17														*
-* MODIFICATIONS : 1/22/17														*
-* SAS VERSION : University Edition 2.9 9.4M3									*
+* PROGRAMMED BY : Jason Piccone							*
+* DATE WRITTEN : 1/20/17							*
+* MODIFICATIONS : 1/22/17							*
+* SAS VERSION : University Edition 2.9 9.4M3					*
 *********************************************************************************/
 
 /***********************************
@@ -32,10 +32,10 @@ ODS GRAPHICS ON
 /* Establishes the labeling scheme */
 PROC FORMAT;   
   VALUE  HEALTHY -1.223570279="Very Healthy"
-		         -0.15957938="Moderately Healthy"
-          		  0.904411518="Somewhat Healthy"
-          		  1.968402416="Moderately Unhealthy"
-          		  3.032393315="Very Unhealthy";
+		 -0.15957938="Moderately Healthy"
+          	  0.904411518="Somewhat Healthy"
+          	  1.968402416="Moderately Unhealthy"
+          	  3.032393315="Very Unhealthy";
 RUN;
 
 /* Applies the label scheme to the database */
@@ -59,17 +59,17 @@ RUN;
 
 /* Demographics - Age */
 PROC FORMAT;   
-  VALUE  AGE2b -0.553509068="18"
-          	   -0.350349648="19"
-          	   -0.147190228="20"
-          	    0.055969193="21"
-          	    0.259128613="22-23"
-          	    0.462288033="24-25"
-          	    0.665447453="26-29"
-          	    0.868606873="30-34"
-          	    1.071766293="35-49"
-          	    1.274925714="50-64"
-          	    1.478085134="65+";
+  VALUE  AGE2b  -0.553509068="18"
+                -0.350349648="19"
+                -0.147190228="20"
+          	 0.055969193="21"
+          	 0.259128613="22-23"
+          	 0.462288033="24-25"
+          	 0.665447453="26-29"
+          	 0.868606873="30-34"
+          	 1.071766293="35-49"
+          	 1.274925714="50-64"
+          	 1.478085134="65+";
 RUN;
 
 PROC SGPLOT data=db1;
@@ -82,7 +82,7 @@ RUN;
 /* Demographics - Sex */
 PROC FORMAT;   
   VALUE  IRSEXb 0.0="Male"
-  				1.0="Female";
+  		1.0="Female";
 RUN;
   
 PROC SGPLOT sgplot data=db1;
@@ -95,7 +95,7 @@ RUN;
 /* Demographics - Married */
 PROC FORMAT;   
   VALUE  MARRIEDb 0.0="No"
-  		 		  1.0="Yes";
+  		  1.0="Yes";
 RUN;
   
 PROC SGPLOT data=db1;
@@ -108,7 +108,7 @@ RUN;
 /* Demographics - Ethnicity */
 PROC FORMAT;   
   VALUE WHITEb 0.0="No"
-  				1.0="Yes";
+  	       1.0="Yes";
 RUN;
   
 PROC SGPLOT data=db1;
@@ -221,18 +221,18 @@ they are related to the outcome of interest (overall health) */
 /* Establishes the labeling scheme (again) */
 PROC FORMAT;   
 	VALUE  HEALTHYb -1="Very Healthy"
-    			     0="Moderately Healthy"
-          			 1="Somewhat Healthy"
-          			 2="Moderately Unhealthy"
-          			 3="Very Unhealthy";
+    			 0="Moderately Healthy"
+          		 1="Somewhat Healthy"
+          		 2="Moderately Unhealthy"
+          		 3="Very Unhealthy";
 RUN;
 
 /* (1) Education Level by health */
 PROC FORMAT;
 	VALUE IREDUC2b   1.0="<12 Grade"
-				     0.0="10-12 Grade"
-				    -1.0="8-9 Grade"
-				    -2.0=">8 Grade";
+			 0.0="10-12 Grade"
+			-1.0="8-9 Grade"
+			-2.0=">8 Grade";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -248,10 +248,10 @@ RUN;
 /* (2) Feel Sad/Depressed by health */
 PROC FORMAT;
 	VALUE DSTCHR30b -4.0="Always"
-				    -3.0="Mostly"
-				    -2.0="Sometimes"
-				    -1.0="A Little"
-			    	 0.0="Never";
+			-3.0="Mostly"
+			-2.0="Sometimes"
+			-1.0="A Little"
+			 0.0="Never";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -267,10 +267,10 @@ RUN;
 /* (3) Everything is an effort by health */
 PROC FORMAT;
 	VALUE DSTEFF30b -4.0="Always"
-				    -3.0="Mostly"
-				    -2.0="Sometimes"
-				    -1.0="A Little"
-			    	 0.0="Never";
+			-3.0="Mostly"
+			-2.0="Sometimes"
+			-1.0="A Little"
+			 0.0="Never";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -286,10 +286,10 @@ RUN;
 /* (4) Hopeless by health */
 PROC FORMAT;
 	VALUE DSTHOP30b -4.0="Always"
-				    -3.0="Mostly"
-				    -2.0="Sometimes"
-				    -1.0="A Little"
-			    	 0.0="Never";
+			-3.0="Mostly"
+			-2.0="Sometimes"
+			-1.0="A Little"
+			 0.0="Never";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -306,7 +306,7 @@ RUN;
 PROC FORMAT;
 	VALUE PROC FORMAT;
 	VALUE MEDICAREb 0="Yes"
-					1="No";
+			1="No";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -321,7 +321,7 @@ RUN;
 /* (6) Covered by insurance by health */
 PROC FORMAT;
 	VALUE PRVHLTINb 0="Yes"
-					1="No";
+			1="No";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -336,7 +336,7 @@ RUN;
 /* (7) Age by health */
 PROC FORMAT;
 	VALUE AGE2b -0.5="Younger"
-				 1.5="Older";
+		     1.5="Older";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -352,10 +352,10 @@ RUN;
 /* (8) Feel Worthless by health */
 PROC FORMAT;
 	VALUE DSTNGD30b -4.0="Always"
-				    -3.0="Mostly"
-				    -2.0="Sometimes"
-				    -1.0="A Little"
-				     0.0="Never";
+			-3.0="Mostly"
+			-2.0="Sometimes"
+			-1.0="A Little"
+			 0.0="Never";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
@@ -381,7 +381,7 @@ RUN;
 /* (10) Took meds for mental health condition by health */
 PROC FORMAT;
 	VALUE AURXYRb  0="Yes"
-				   1="No";
+		       1="No";
 RUN;
 
 ODS GRAPHICS / antialias=on antialiasmax=10000;
